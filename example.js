@@ -1,13 +1,4 @@
-# delay each
-
-## install
-
-```shell
-npm install delayeach
-```
-
-```js
-var delayEach = require('delayeach')
+var delayEach = require('./index')
 var fs = require('fs')
 var files = [
     './example/a.txt',
@@ -41,32 +32,3 @@ delayEach(
         console.log(JSON.stringify(contents))
     }
 )
-/**
- *   file: a.txt b.txt c.txt
- *   ["aaa\n","bbb\n","ccc\n"]
- */
- /**
-  *  file: a.txt c.txt
-  *  ["aaa\n","ENOENT: no such file or directory, open './example/b.txt'"]
-  */
-```
-
-
-```js
-/**
- * function delayEach - 延迟遍历
- * @param {array} task
- * @param {taskHandle}
- * @param {finishCallback}
- */
-/**
-  * @callback - handle
-  * @param {any} - value
-  * @param {number} - index
-  * @param {function} - next
-  * @param {function} - finish
-  */
- /**
-  * @callback - finish
-  */
-```
