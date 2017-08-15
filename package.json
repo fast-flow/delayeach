@@ -2,7 +2,7 @@
   "name": "delayeach",
   "version": "0.1.0",
   "main": "index.js",
-  "description": "delay each delayEach(arr, iterateFn, finishFn)",
+  "description": "delay each  `delayEach(arr, iterateFn(item, index, next, finish), finishFn)`",
   "keywords": "delay each, task each",
   "devDependencies": {
     "expect.js": "^0.3.1"
