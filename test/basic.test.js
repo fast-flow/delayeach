@@ -53,4 +53,19 @@ describe('basic.test.js', function () {
             }
         )
     })
+    it('after finish() do not run next()', function (done) {
+        var count = 0
+        delayEach(
+            ['a', 'b', 'c'],
+            function handle(item, index, next, finish) {
+                count++
+                finish()
+                next()
+            }
+        )
+        setTimeout(function () {
+            expect(count).to.eql(1)
+            done()
+        }, 200)
+    })
 })

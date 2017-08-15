@@ -1,5 +1,7 @@
 # delay each
 
+> delay each  `delayEach(arr, iterateFn(item, index, next, finish), finishFn)`
+
 ## install
 
 ```shell

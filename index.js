@@ -20,7 +20,9 @@ module.exports = function delayEach(task, itemHandle, finishCallback) {
     var callFinish = function () {
         if (!isFinish) {
             isFinish = true
-            finishCallback()
+            if (typeof finishCallback === 'function') {
+                finishCallback()
+            }
         }
     }
     function handleTask(index) {
