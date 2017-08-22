@@ -68,4 +68,54 @@ describe('basic.test.js', function () {
             done()
         }, 200)
     })
+    it('nondelay: next() // some code', function (done) {
+        var log = []
+        var data = ['a', 'b', 'c']
+        var checkoutCount = 0
+        function checkFinish() {
+            checkoutCount++
+            if (checkoutCount === data.length) {
+                // finish
+                expect(log).to.eql([
+                    'a',
+                    'b',
+                    'c'
+                ])
+                done()
+            }
+        }
+        delayEach(
+            data,
+            function handle(item, index, next, finish) {
+                next()
+                log.push(item)
+                checkFinish()
+            }
+        )
+    })
+    it('nondelay: // some code ;next()', function (done) {
+        var log = []
+        var data = ['a', 'b', 'c']
+        var checkoutCount = 0
+        function checkFinish() {
+            checkoutCount++
+            if (checkoutCount === data.length) {
+                // finish
+                expect(log).to.eql([
+                    'a',
+                    'b',
+                    'c'
+                ])
+                done()
+            }
+        }
+        delayEach(
+            data,
+            function handle(item, index, next, finish) {
+                log.push(item)
+                next()
+                checkFinish()
+            }
+        )
+    })
 })

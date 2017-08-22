@@ -16,6 +16,9 @@
   */
 module.exports = function delayEach(task, itemHandle, finishCallback) {
     var taskCount = task.length
+    if (taskCount === 0) {
+        return
+    }
     var isFinish = false
     var callFinish = function () {
         if (!isFinish) {
@@ -26,8 +29,9 @@ module.exports = function delayEach(task, itemHandle, finishCallback) {
         }
     }
     function handleTask(index) {
+        var item = task[index]
         itemHandle(
-            task[index],
+            item,
             index,
             function next () {
                 if (isFinish) {
@@ -35,7 +39,9 @@ module.exports = function delayEach(task, itemHandle, finishCallback) {
                 }
                 var nextIndex = index + 1
                 if (nextIndex !== taskCount) {
-                    handleTask(index + 1)
+                    setTimeout(function () {
+                        handleTask(nextIndex)
+                    }, 0)
                 }
                 else {
                     callFinish()
