@@ -24,7 +24,7 @@ module.exports = function delayEach(task, itemHandle, finishCallback) {
         if (!isFinish) {
             isFinish = true
             if (typeof finishCallback === 'function') {
-                finishCallback()
+                finishCallback.apply(null, arguments)
             }
         }
     }
@@ -48,7 +48,7 @@ module.exports = function delayEach(task, itemHandle, finishCallback) {
                 }
             },
             function finish() {
-                callFinish()
+                callFinish.apply(null, arguments)
             }
         )
     }

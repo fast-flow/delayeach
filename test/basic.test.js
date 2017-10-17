@@ -118,4 +118,20 @@ describe('basic.test.js', function () {
             }
         )
     })
+    it('finish(param)', function (done) {
+        var arr = [1,2,3]
+        delayEach(arr, function (item, index, next, finish) {
+            if (index === 1) {
+                finish('index: 1')
+            }
+            next()
+        }, function finish(log) {
+            switch(log) {
+                case 'index: 1':
+                    done()
+                break
+                default:
+            }
+        })
+    })
 })

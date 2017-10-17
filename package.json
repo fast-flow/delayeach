@@ -1,6 +1,6 @@
 {
   "name": "delayeach",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "main": "index.js",
   "description": "delay each `delayEach(arr, iterateFn(item, index, next, finish), finishFn)`",
   "keywords": "delay each, task each",
